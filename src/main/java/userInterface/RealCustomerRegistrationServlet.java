@@ -88,8 +88,7 @@ public class RealCustomerRegistrationServlet extends HttpServlet {
                 "<center>" +
                 "<br> <form action=\"LegalCustomerRegistration\" method=\"POST\">" +
 
-                "customerId:<br>\n" +
-                "<input type = \"number\" name = \"customerId\" value = \"" + request.getParameter("customerId") + "\" readonly> <br>\n" +
+
                 "firstName:<br>\n" +
                 "<input type = \"text\" name = \"firstName\" value = \"" + request.getParameter("firstName") + "\" required> <br>\n" +
                 "lastName:<br>\n" +
@@ -113,7 +112,7 @@ public class RealCustomerRegistrationServlet extends HttpServlet {
                 "</a>" +
                 "</div>" +
                 "<div class=\"home-button\">" +
-                "<a href=\"CustomerRegistrationServlet.html\">" +
+                "<a href=\"CustomerRegistration.html\">" +
                 "<button>Prev</button>" +
                 "</a>" +
                 "</div>" +
