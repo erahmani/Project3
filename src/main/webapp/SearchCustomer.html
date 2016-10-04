@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SearchCustomer</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .dropdown-content text {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content text:hover {
+            background-color: #f1f1f1
+        }
+
+        div.relative {
+            position: relative;
+            top: 25%;
+            left: 35%;
+            width: 30%;
+            height: 30%;
+            border: solid lightslategrey;
+            background-color: whitesmoke
+        }
+
+        div.home-button {
+            position: relative;
+            top: 30%;
+            left: 48%;
+        }
+    </style>
+</head>
+<body bgcolor="#20b2aa">
+<div class="relative">
+    <center>
+        <br>
+<form action="SearchCustomerServlet" method="GET">
+    <select name="customerType">
+        <option name="legalCustomer" value="legalCustomer">LegalCustomer</option>
+        <option name="realCustomer" value="realCustomer">RealCustomer</option>
+    </select>
+    <button>OK</button>
+</form>
+    </center>
+</div>
+<div class="home-button">
+    <a href="Main.html">
+        <button>Home</button>
+    </a>
+</div>
+
+</body>
+</html>

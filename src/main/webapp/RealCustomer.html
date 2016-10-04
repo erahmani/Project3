@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RealCustomer</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .dropdown-content text {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content text:hover {
+            background-color: #f1f1f1
+        }
+
+        div.relative {
+            position: relative;
+            top: 25%;
+            left: 35%;
+            width: 30%;
+            height: 50%;
+            border: solid lightslategrey;
+            background-color: whitesmoke
+        }
+
+        div.home-button {
+            position: relative;
+            top: 30%;
+            left: 48%;
+        }
+    </style>
+</head>
+<body bgcolor="#20b2aa">
+<div class="relative">
+    <center>
+        <br>
+        <form action="RealCustomerRegistrationServlet" method="POST">
+            First name:<br>
+            <input type="text" name="firstName" required><br>
+            Last name:<br>
+            <input type="text" name="lastName" required><br>
+            Father name:<br>
+            <input type="text" name="fatherName" required><br>
+            Birth day:<br>
+            <input type="date" name="birthDay" required/><br>
+            National Id:<br>
+            <input type="number" name="nationalId" required><br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </center>
+</div>
+<div class="home-button">
+    <a href="Main.html">
+        <button>Home</button>
+    </a>
+</div>
+
+<div class="home-button">
+    <a href="CustomerRegistration.html">
+        <button>Prev</button>
+    </a>
+</div>
+</body>
+</html>
