@@ -46,7 +46,6 @@ public class LegalCustomerCRUD extends CustomerCRUD {
         LinkedList<LegalCustomer> legalCustomer = null;
         try {
             String queryStr = "SELECT * FROM legalcustomer WHERE " + searchOption + " = '" + searchValue + "'";
-            System.out.println(queryStr+"  sdfasdfasf");
             PreparedStatement preparedStatement = conn.prepareStatement(queryStr);
             ResultSet resultSet = preparedStatement.executeQuery(queryStr);
             if (resultSet != null) {
@@ -63,7 +62,8 @@ public class LegalCustomerCRUD extends CustomerCRUD {
     public static void updateLegalCustomer(LegalCustomer legalCustomer) {
         try {
             Connection conn = DB.connectDB();
-            String queryStr = "UPDATE LegalCustomer SET(companyName, registrationDate, economicCode) values(?, ?, ?) WHERE customerId = " + legalCustomer.getCustomerId();
+            String queryStr = "UPDATE LegalCustomer SET companyName=?, registrationDate=?, economicCode=? WHERE customerId = " + legalCustomer.getCustomerId();
+
             PreparedStatement stmt = conn.prepareStatement(queryStr);
             stmt.setString(1, legalCustomer.getCompanyName());
             stmt.setString(2, legalCustomer.getRegistrationDate());

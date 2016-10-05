@@ -10,13 +10,13 @@ import java.util.LinkedList;
 public class LegalCustomerBusinessLogic extends CustomerBusinessLogic {
 
     private static void legalCustomerFieldValidation(LegalCustomer legalCustomer) {
-        if(legalCustomer.getCompanyName().isEmpty()){
+        if (legalCustomer.getCompanyName().isEmpty()) {
             throw new EmptyFieldException("Company Name Is Empty!");
         }
-        if(legalCustomer.getEconomicCode().isEmpty()){
+        if (legalCustomer.getEconomicCode().isEmpty()) {
             throw new EmptyFieldException("Economic Code Is Empty!");
         }
-        if(legalCustomer.getRegistrationDate().isEmpty()){
+        if (legalCustomer.getRegistrationDate().isEmpty()) {
             throw new EmptyFieldException("Registration Date Is Empty!");
         }
     }
@@ -38,7 +38,7 @@ public class LegalCustomerBusinessLogic extends CustomerBusinessLogic {
     public static void editCustomer(LegalCustomer legalCustomer) {
         legalCustomerFieldValidation(legalCustomer);
         LinkedList<LegalCustomer> legalCustomerList = LegalCustomerCRUD.selectLegalCustomer("economicCode", legalCustomer.getEconomicCode());
-        if (legalCustomerList.size() == 1) {
+        if (legalCustomerList.size() == 0 || (legalCustomerList.size() == 1 && legalCustomerList.get(0).getCustomerId().equals(legalCustomer.getCustomerId()))) {
             LegalCustomerCRUD.updateLegalCustomer(legalCustomer);
         } else {
             throw new DuplicateUniqueCodeException("This Economic Code Is Inserted !!!");

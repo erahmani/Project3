@@ -66,7 +66,7 @@ public class RealCustomerCRUD extends CustomerCRUD {
     public static void updateRealCustomer(RealCustomer realCustomer) {
         try {
             Connection conn = DB.connectDB();
-            String queryStr = "UPDATE LegalCustomer SET(firstName, lastName, fatherName, birthDay, nationalId) values(?, ?, ?, ?, ?) WHERE customerId = " + realCustomer.getCustomerId();
+            String queryStr = "UPDATE RealCustomer SET firstName=?, lastName=?, fatherName=?, birthDay=?, nationalId=? WHERE customerId = " + realCustomer.getCustomerId();
             PreparedStatement stmt = conn.prepareStatement(queryStr);
             stmt.setString(1, realCustomer.getFirstName());
             stmt.setString(2, realCustomer.getLastName());

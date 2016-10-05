@@ -23,7 +23,7 @@ public class EditCustomerServlet extends HttpServlet {
         String customerType = request.getParameter("customerType");
         try {
             System.out.println("Economic Code: " + request.getParameter("economicCode"));
-            System.out.println("customertype " + customerType);
+            System.out.println("customertype:: " + customerType);
             if (customerType.equals("RealCustomer")) {
                 RealCustomer realCustomer = userUtility.initRealCustomer(request);
                 RealCustomerBusinessLogic.editCustomer(realCustomer);
@@ -101,6 +101,9 @@ public class EditCustomerServlet extends HttpServlet {
                 "<body bgcolor=\"#20b2aa\">" +
                 "<p ><font color=\"red\"><h2 >" + errorMessage + "</h2></font></p>" +
 
+                "<div class=\"relative\">" +
+                "<center>" + "<br> <form action=\" EditCustomerServlet \" method=\"POST\">" +
+
                 "customerId:<br>\n" +
                 "<input type = \"number\" name = \"customerId\" value = \"" + request.getParameter("customerId") + "\" readonly> <br>\n" +
                 "firstName:<br>\n" +
@@ -113,6 +116,13 @@ public class EditCustomerServlet extends HttpServlet {
                 "<input type = \"date\" name = \"birthDay\" value = \"" + request.getParameter("birthDay") + "\" required> <br>\n" +
                 "nationalId:<br>\n" +
                 "<input type = \"number\" name = \"nationalId\" value = \"" + request.getParameter("nationalId") + "\" required> <br>\n" +
+
+                "<input type = \"hidden\" name = \"customerType\" value = \"RealCustomer\" required> <br>\n" +
+                "<input type=\"submit\" value=\"Submit\">" +
+                "<input type=\"reset\" value=\"Reset\">" +
+                "</form>" +
+                "</center>" +
+                "</div>" +
 
                 "<div class=\"home-button\">" +
                 "<a href=\"Main.html\">" +
@@ -161,6 +171,9 @@ public class EditCustomerServlet extends HttpServlet {
                 "<body bgcolor=\"#20b2aa\">" +
                 "<p ><font color=\"red\"><h2 >" + errorMessage + "</h2></font></p>" +
 
+                "<div class=\"relative\">" +
+                "<center>" + "<br> <form action=\" EditCustomerServlet \" method=\"POST\">" +
+
                 "customerId:<br>\n" +
                 "<input type = \"number\" name = \"customerId\" value = \"" + request.getParameter("customerId") + "\" readonly> <br>\n" +
                 "companyName:<br>\n" +
@@ -169,6 +182,13 @@ public class EditCustomerServlet extends HttpServlet {
                 "<input type = \"date\" name = \"registrationDate\" value = \"" + request.getParameter("registrationDate") + "\" required> <br>\n" +
                 "economicCode:<br>\n" +
                 "<input type = \"number\" name = \"economicCode\" value = \"" + request.getParameter("economicCode") + "\" required> <br>\n" +
+
+                "<input type = \"hidden\" name = \"customerType\" value = \"LegalCustomer\" required> <br>\n" +
+                "<input type=\"submit\" value=\"Submit\">" +
+                "<input type=\"reset\" value=\"Reset\">" +
+                "</form>" +
+                "</center>" +
+                "</div>" +
 
                 "<div class=\"home-button\">" +
                 "<a href=\"Main.html\">" +

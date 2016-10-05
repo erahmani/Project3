@@ -86,7 +86,7 @@ public class LegalCustomerRegistrationServlet extends HttpServlet {
 
                 "<div class=\"relative\">" +
                 "<center>" +
-                "<br> <form action=\"LegalCustomerRegistration\" method=\"POST\">" +
+                "<br> <form action=\"LegalCustomerRegistrationServlet\" method=\"POST\">" +
 
 
                 "companyName:<br>\n" +

@@ -44,7 +44,8 @@ public class RealCustomerBusinessLogic extends CustomerBusinessLogic {
     public static void editCustomer(RealCustomer realCustomer) {
         realCustomerFieldValidation(realCustomer);
         LinkedList<RealCustomer> realCustomerList = RealCustomerCRUD.selectRealCustomer("nationalId", realCustomer.getNationalId());
-        if (realCustomerList.size() == 1) {
+        System.out.println();
+        if (realCustomerList.size() == 0 || (realCustomerList.size() == 1 && realCustomerList.get(0).getCustomerId().equals(realCustomer.getCustomerId()))) {
             RealCustomerCRUD.updateRealCustomer(realCustomer);
         } else {
             throw new DuplicateUniqueCodeException("This Economic Code Is Inserted !!!");

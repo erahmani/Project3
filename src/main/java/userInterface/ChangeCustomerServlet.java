@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Field;
 
 
 @WebServlet(name = "ChangeCustomerServlet", urlPatterns = {"/ChangeCustomerServlet"})
@@ -106,7 +105,7 @@ public class ChangeCustomerServlet extends HttpServlet {
                 "<input type = \"number\" name = \"nationalId\" value = \"" + request.getParameter("nationalId") + "\" required> <br>\n" +
 
 
-                //"<input type = \"hidden\" name = \"customerType\" value = \"" + customerType + "\" required> <br>\n" +
+                "<input type = \"hidden\" name = \"customerType\" value = \"RealCustomer\" required> <br>\n" +
                 "<input type=\"submit\" value=\"Submit\">" +
                 "<input type=\"reset\" value=\"Reset\">" +
                 "</form>" +
@@ -122,6 +121,7 @@ public class ChangeCustomerServlet extends HttpServlet {
     }
 
     private static String createLegalCustomerEditHTML(HttpServletRequest request) {
+
         return "<!DOCTYPE html>" +
                 "<html>" +
                 "<head>" +
@@ -172,7 +172,7 @@ public class ChangeCustomerServlet extends HttpServlet {
                 "<input type = \"number\" name = \"economicCode\" value = \"" + request.getParameter("economicCode") + "\" required> <br>\n" +
 
 
-                //"<input type = \"hidden\" name = \"customerType\" value = \"" + customerType + "\" required> <br>\n" +
+                "<input type = \"hidden\" name = \"customerType\" value = \"LegalCustomer\" required> <br>\n" +
                 "<input type=\"submit\" value=\"Submit\">" +
                 "<input type=\"reset\" value=\"Reset\">" +
                 "</form>" +

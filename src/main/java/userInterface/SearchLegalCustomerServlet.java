@@ -55,6 +55,7 @@ public class SearchLegalCustomerServlet extends HttpServlet {
                 "<table>" +
                 "<caption>Result for search option: " + searchOption + " search value: " + searchValue + "</caption>" +
 
+                "<th> customerId </th> \n" +
                 "<th> companyName </th> \n" +
                 "<th> registrationDate </th> \n" +
                 "<th> economicCode </th> \n";
@@ -67,6 +68,7 @@ public class SearchLegalCustomerServlet extends HttpServlet {
                             "<td><input type = \"text\" name = \"companyName\" value = \"" + legalCustomer.getCompanyName() + "\" readonly ></td>\n" +
                             "<td><input type = \"text\" name = \"registrationDate\" value = \"" + legalCustomer.getRegistrationDate() + "\" readonly ></td>\n" +
                             "<td><input type = \"text\" name = \"economicCode\" value = \"" + legalCustomer.getEconomicCode() + "\" readonly ></td>\n" +
+                            "<input type = \"hidden\" name = \"customerType\" value = \"LegalCustomer\" required> <br>\n" +
                             "<td ><input type = \"submit\" name = \"Edit\" value = \"Edit\" ></td >" +
                             "<td ><input type = \"submit\" name = \"Delete\" value = \"Delete\" ></td >" +
                             "</tr >";

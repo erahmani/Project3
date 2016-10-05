@@ -55,10 +55,12 @@ public class SearchRealCustomerServlet extends HttpServlet {
                 "<table>" +
                 "<caption>Result for search option: " + searchOption + " search value: " + searchValue + "</caption>" +
 
-                "<th> companyName </th> \n" +
-                "<th> registrationDate </th> \n" +
-                "<th> economicCode </th> \n";
-
+                "<th> customerId </th> \n" +
+                "<th> firstName </th> \n" +
+                "<th> lastName </th> \n" +
+                "<th> fatherName </th> \n" +
+                "<th> birthDay </th> \n" +
+                "<th> nationalId </th> \n";
         String tableRows = "";
         for (RealCustomer realCustomer : legalCustomerList) {
             tableRows +=
@@ -69,6 +71,7 @@ public class SearchRealCustomerServlet extends HttpServlet {
                             "<td><input type = \"text\" name = \"fatherName\" value = \"" + realCustomer.getFatherName() + "\" readonly ></td>\n" +
                             "<td><input type = \"text\" name = \"birthDay\" value = \"" + realCustomer.getBirthDay() + "\" readonly ></td>\n" +
                             "<td><input type = \"text\" name = \"nationalId\" value = \"" + realCustomer.getNationalId() + "\" readonly ></td>\n" +
+                            "<input type = \"hidden\" name = \"customerType\" value = \"RealCustomer\" required> <br>\n" +
                             "<td ><input type = \"submit\" name = \"Edit\" value = \"Edit\" ></td >" +
                             "<td ><input type = \"submit\" name = \"Delete\" value = \"Delete\" ></td >" +
                             "</tr >";
