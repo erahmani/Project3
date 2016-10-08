@@ -74,12 +74,11 @@ public class SearchRealCustomerServlet extends HttpServlet {
                             "<input type = \"hidden\" name = \"customerType\" value = \"RealCustomer\" required> <br>\n" +
                             "<td ><input type = \"submit\" name = \"Edit\" value = \"Edit\" ></td >" +
                             "<td ><input type = \"submit\" name = \"Delete\" value = \"Delete\" ></td >" +
+                            "</form>" +
                             "</tr >";
         }
 
-        String endHtml = "</form>" +
-                "</tr>" +
-                "</table>" +
+        String endHtml = "</table>" +
                 "</center>" +
                 "</div>" +
                 "<div class=\"home-button\">" +
