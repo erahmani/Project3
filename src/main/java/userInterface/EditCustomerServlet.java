@@ -134,6 +134,7 @@ public class EditCustomerServlet extends HttpServlet {
                 "</html>";
     }
 
+
     public static String createLegalCustomerEditErrorHTML(HttpServletRequest request, String errorMessage) {
         return "<!DOCTYPE html>" +
                 "<html lang=\"fa\">" +
