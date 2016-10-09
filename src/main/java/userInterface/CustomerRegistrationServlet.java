@@ -13,6 +13,8 @@ import java.io.IOException;
 public class CustomerRegistrationServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         String customerType = request.getParameter("customerType");
         String address = customerType.substring(0, 1).toUpperCase() + customerType.substring(1) + ".html";
         RequestDispatcher dispatcher = request.getRequestDispatcher(address);

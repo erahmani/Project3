@@ -15,8 +15,9 @@ import java.io.PrintWriter;
 public class ChangeCustomerServlet extends HttpServlet {
 
     public static String createSuccessfulDeletedHTML() {
-        return "<!DOCTYPE html>" +
+        return "<html lang=\"fa\">" +
                 "<head>" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title>Title</title>" +
                 "</head>" +
                 "<body>" +
@@ -30,31 +31,11 @@ public class ChangeCustomerServlet extends HttpServlet {
                 "</html>";
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getParameter("Delete") != null) {
-            String customerId = request.getParameter("customerId");
-            CustomerBusinessLogic.deleteCustomer(customerId);
-            String html = createSuccessfulDeletedHTML();
-            PrintWriter printWriter = response.getWriter();
-            printWriter.println(html);
-        } else if (request.getParameter("Edit") != null) {
-            String customerType = request.getParameter("customerType");
-            String html = null;
-            if (customerType.equals("LegalCustomer")) {
-                html = createLegalCustomerEditHTML(request);
-            } else if (customerType.equals("RealCustomer")) {
-                html = createRealCustomerEditHTML(request);
-            }
-            PrintWriter printWriter = response.getWriter();
-            printWriter.println(html);
-        }
-    }
-
     private static String createRealCustomerEditHTML(HttpServletRequest request) {
         return "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +
@@ -123,9 +104,9 @@ public class ChangeCustomerServlet extends HttpServlet {
     private static String createLegalCustomerEditHTML(HttpServletRequest request) {
 
         return "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +
@@ -185,5 +166,27 @@ public class ChangeCustomerServlet extends HttpServlet {
                 "</div>" +
                 "</body>" +
                 "</html>";
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        if (request.getParameter("Delete") != null) {
+            String customerId = request.getParameter("customerId");
+            CustomerBusinessLogic.deleteCustomer(customerId);
+            String html = createSuccessfulDeletedHTML();
+            PrintWriter printWriter = response.getWriter();
+            printWriter.println(html);
+        } else if (request.getParameter("Edit") != null) {
+            String customerType = request.getParameter("customerType");
+            String html = null;
+            if (customerType.equals("LegalCustomer")) {
+                html = createLegalCustomerEditHTML(request);
+            } else if (customerType.equals("RealCustomer")) {
+                html = createRealCustomerEditHTML(request);
+            }
+            PrintWriter printWriter = response.getWriter();
+            printWriter.println(html);
+        }
     }
 }

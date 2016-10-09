@@ -17,6 +17,7 @@ public class LegalCustomerCRUD extends CustomerCRUD {
             preparedStatement.setString(2, legalCustomer.getCompanyName());
             preparedStatement.setString(3, legalCustomer.getRegistrationDate());
             preparedStatement.setString(4, legalCustomer.getEconomicCode());
+            System.out.println(legalCustomer);
             preparedStatement.executeUpdate();
             conn.close();
         } catch (SQLException e) {
@@ -46,6 +47,7 @@ public class LegalCustomerCRUD extends CustomerCRUD {
         LinkedList<LegalCustomer> legalCustomer = null;
         try {
             String queryStr = "SELECT * FROM legalcustomer WHERE " + searchOption + " = '" + searchValue + "'";
+
             PreparedStatement preparedStatement = conn.prepareStatement(queryStr);
             ResultSet resultSet = preparedStatement.executeQuery(queryStr);
             if (resultSet != null) {

@@ -20,17 +20,16 @@ import java.io.PrintWriter;
 public class EditCustomerServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         String customerType = request.getParameter("customerType");
         try {
-            System.out.println("Economic Code: " + request.getParameter("economicCode"));
-            System.out.println("customertype:: " + customerType);
             if (customerType.equals("RealCustomer")) {
-                RealCustomer realCustomer = userUtility.initRealCustomer(request);
+                RealCustomer realCustomer = Utility.initRealCustomer(request);
                 RealCustomerBusinessLogic.editCustomer(realCustomer);
-                System.out.println("RalCustiner  ");
             } else if (customerType.equals("LegalCustomer")) {
-                LegalCustomer legalCustomer = userUtility.initLegalCustomer(request);
-                System.out.println("ELSDFKASDFAF   " + legalCustomer.getEconomicCode());
+                LegalCustomer legalCustomer = Utility.initLegalCustomer(request);
                 LegalCustomerBusinessLogic.editCustomer(legalCustomer);
             }
             PrintWriter printWriter = response.getWriter();
@@ -49,7 +48,9 @@ public class EditCustomerServlet extends HttpServlet {
 
     public static String createEditSuccessfulHTML() {
         return "<!DOCTYPE html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title>Title</title>" +
                 "</head>" +
                 "<body>" +
@@ -65,9 +66,9 @@ public class EditCustomerServlet extends HttpServlet {
 
     public static String createRealCustomerEditErrorHTML(HttpServletRequest request, String errorMessage) {
         return "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +
@@ -135,9 +136,9 @@ public class EditCustomerServlet extends HttpServlet {
 
     public static String createLegalCustomerEditErrorHTML(HttpServletRequest request, String errorMessage) {
         return "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +

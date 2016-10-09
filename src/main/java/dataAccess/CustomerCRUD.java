@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class CustomerCRUD {
     protected static void insertCustomer(Connection conn, Customer customer) {
-        String sql = "insert into bank.customer values()";
+        String sql = "insert into customer values()";
         try {
             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.executeUpdate();
@@ -21,7 +21,7 @@ public class CustomerCRUD {
 
     public static void deleteCustomer(String customerId) {
         Connection conn = DB.connectDB();
-        String sql = "delete from bank.customer where customerId = " + customerId;
+        String sql = "delete from customer where customerId = " + customerId;
         try {
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sql);

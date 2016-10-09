@@ -16,8 +16,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "RealCustomerRegistrationServlet", urlPatterns = {"/RealCustomerRegistrationServlet"})
 public class RealCustomerRegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         try {
-            RealCustomer realCustomer = userUtility.initRealCustomer(request);
+            RealCustomer realCustomer = Utility.initRealCustomer(request);
             RealCustomerBusinessLogic.createNewCustomer(realCustomer);
             PrintWriter printWriter = response.getWriter();
             printWriter.println(createSuccessfulRegisteredHTML(realCustomer.getCustomerId()));
@@ -32,7 +34,9 @@ public class RealCustomerRegistrationServlet extends HttpServlet {
 
     private static String createSuccessfulRegisteredHTML(String customerId) {
         return "<!DOCTYPE html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title>Title</title>" +
                 "</head>" +
                 "<body>" +
@@ -48,9 +52,9 @@ public class RealCustomerRegistrationServlet extends HttpServlet {
 
     public static String createRealCustomerRegistrationErrorHTML(HttpServletRequest request, String errorMessage) {
         return "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +

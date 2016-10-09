@@ -5,7 +5,7 @@ import dataAccess.entity.RealCustomer;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class userUtility {
+public class Utility {
     public static LegalCustomer initLegalCustomer(HttpServletRequest request) {
         LegalCustomer legalCustomer = new LegalCustomer();
         legalCustomer.setCustomerId(request.getParameter("customerId"));

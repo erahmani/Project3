@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class DB {
     public static Connection connectDB() {
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-        String db_url = "jdbc:mysql://localhost/bank";
+        String db_url = "jdbc:mysql://localhost/bank2?useUnicode=yes&characterEncoding=utf-8";
         String user = "root";
         String pass = "";
         Connection conn = null;
@@ -32,7 +32,7 @@ public class DB {
         try {
             conn = connectDB();
             Statement stmt = conn.createStatement();
-            String query = "CREATE DATABASE " + dbName;
+            String query = "CREATE DATABASE " + dbName + " DEFAULT CHARACTER SET utf8 COLLATE utf8_persian_ci";
             stmt.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -47,13 +47,17 @@ public class DB {
         }
 
     }
-
+public static void main(String[] s){
+    initDB();
+}
     private static void initDB() {
-        createDB("Bank");
+        //createDB("Bank2");
 
         String createCustomer = "CREATE TABLE Customer " +
                 "(customerId INTEGER not NULL AUTO_INCREMENT, " +
-                " PRIMARY KEY ( customerId ))";
+                " PRIMARY KEY ( customerId )) " +
+                " DEFAULT CHARACTER SET = utf8 " +
+                " COLLATE = utf8_persian_ci";
 
         String createRealCustomer = "CREATE TABLE RealCustomer( " +
                 " customerId INT NOT NULL, " +
@@ -67,7 +71,9 @@ public class DB {
                 " FOREIGN KEY (customerId) " +
                 " REFERENCES Customer (customerId)" +
                 " ON DELETE CASCADE " +
-                " ON UPDATE RESTRICT )";
+                " ON UPDATE RESTRICT ) "+
+                " DEFAULT CHARACTER SET = utf8 " +
+                " COLLATE = utf8_persian_ci";
 
         String createLegalCustomer = "CREATE TABLE LegalCustomer( " +
                 " customerId INT NOT NULL, " +
@@ -79,7 +85,9 @@ public class DB {
                 " FOREIGN KEY (customerId) " +
                 " REFERENCES Customer (customerId)" +
                 " ON DELETE CASCADE " +
-                " ON UPDATE RESTRICT )";
+                " ON UPDATE RESTRICT ) "+
+                " DEFAULT CHARACTER SET = utf8 " +
+                " COLLATE = utf8_persian_ci";
 
         Connection conn = connectDB();
         try {

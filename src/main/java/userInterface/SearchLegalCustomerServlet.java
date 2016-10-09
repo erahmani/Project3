@@ -16,9 +16,9 @@ import java.util.LinkedList;
 public class SearchLegalCustomerServlet extends HttpServlet {
     private static String createLegalCustomerSearchHTMLResult(String searchOption, String searchValue, LinkedList<LegalCustomer> legalCustomerList) {
         String beginHtml = "<!DOCTYPE html>" +
-                "<html>" +
+                "<html lang=\"fa\">" +
                 "<head>" +
-                "<meta charset=\"UTF-8\">" +
+                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
                 "<title></title>" +
                 "<style>" +
                 "       html, body {" +
@@ -90,6 +90,8 @@ public class SearchLegalCustomerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String searchOption = req.getParameter("searchOption");
         String searchValue = req.getParameter("searchValue");
         LinkedList<LegalCustomer> legalCustomerList = LegalCustomerBusinessLogic.searchLegalCustomer(searchOption, searchValue);
