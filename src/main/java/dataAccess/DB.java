@@ -51,7 +51,7 @@ public static void main(String[] s){
     initDB();
 }
     private static void initDB() {
-        //createDB("Bank2");
+        createDB("Bank");
 
         String createCustomer = "CREATE TABLE Customer " +
                 "(customerId INTEGER not NULL AUTO_INCREMENT, " +
