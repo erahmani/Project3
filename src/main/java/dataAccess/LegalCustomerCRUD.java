@@ -26,7 +26,7 @@ public class LegalCustomerCRUD extends CustomerCRUD {
     }
 
     private static LinkedList<LegalCustomer> prepareLegalCustomerSelectResult(ResultSet resultSet) {
-        LinkedList<LegalCustomer> legalCustomerList = new LinkedList();
+        LinkedList<LegalCustomer> legalCustomerList = new LinkedList<LegalCustomer>();
         try {
             while (resultSet.next()) {
                 LegalCustomer legalCustomer = new LegalCustomer();
@@ -46,9 +46,11 @@ public class LegalCustomerCRUD extends CustomerCRUD {
         Connection conn = DB.connectDB();
         LinkedList<LegalCustomer> legalCustomer = null;
         try {
-            String queryStr = "SELECT * FROM legalcustomer WHERE " + searchOption + " = '" + searchValue + "'";
+//            String queryStr = "SELECT * FROM legalcustomer WHERE " + searchOption + " = '" + searchValue + "'";
+            String queryStr = "SELECT * FROM legalcustomer WHERE " + searchOption + " = ?";
 
             PreparedStatement preparedStatement = conn.prepareStatement(queryStr);
+            preparedStatement.setString(1, searchValue);
             ResultSet resultSet = preparedStatement.executeQuery(queryStr);
             if (resultSet != null) {
                 legalCustomer = prepareLegalCustomerSelectResult(resultSet);
